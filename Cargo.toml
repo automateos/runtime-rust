@@ -1,0 +1,6 @@
+[workspace]
+
+members = [
+    "src/vm",
+    "src/runtime",
+]
