@@ -6,35 +6,66 @@ mod opcode;
 use crate::code_object::CodeObject;
 use crate::opcode::*;
 
+pub enum ExecResult{
+    EXEC_OK,
+    EXEC_FAIL,
+}
+
 
 pub struct VM {    
-    pub ip: isize,
+    ip: *const u8,
+    instruction_offset: isize,
 }
 
 impl VM {
-    pub fn run(&mut self, co: CodeObject) -> u8 {
+
+    pub fn new (co: CodeObject) -> Self {
+
+        Self { 
+                ip: co.instructions,
+                instruction_offset: 0,
+        }
+    }
+
+    pub fn run(&mut self) -> ExecResult {
+
+        
+
+        macro_rules! read_byte {
+            () => {
+                unsafe {
+                    let byte_content: u8;
+                    byte_content = *self.ip.offset(self.instruction_offset);
+                    self.instruction_offset+= 1;
+                    byte_content
+                }                
+            };
+        }
         
         let mut instruction: u8;
-        self.ip = 0;
+        
 
         loop{
 
-            self.ip += 1;
-
-            if self.ip > co.count {
-                break 0;
-            }
-            unsafe {
-                instruction = *co.instructions.offset(self.ip-1);
-            }           
+           
+            instruction = read_byte!();                      
             
-            if instruction == OP_RETURN{
-                break 0;
+            match instruction{
+                OP_NOP =>{
+                    continue;
+                }
+                OP_RETURN =>{
+                    break;
+                }
+                _ =>{
+                    break;
+                }
             }
                         
 
             
         }
+         return ExecResult::EXEC_OK;
     }
 }
 

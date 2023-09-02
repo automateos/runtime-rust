@@ -10,7 +10,7 @@ Welcome to AutomateOS's documentation!
    :maxdepth: 2
    :caption: Contents:
 
-
+    source/binary_format.rst
 
 Indices and tables
 ==================
