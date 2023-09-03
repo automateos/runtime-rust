@@ -1,6 +1,7 @@
 [workspace]
 
 members = [
-    "src/vm",
-    "src/runtime",
+    "vm",
+    "runtime",
+    "tracer",
 ]

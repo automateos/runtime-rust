@@ -9,18 +9,13 @@ pub struct CodeObject {
 
     /// it is a pointer to an array of byte with the op codes.
     pub instructions: *const u8,
-
-    /// number of array's opcode 
-    pub count : isize,
+    /// instruction array's length 
+    pub inststructions_size : isize,
     
-    //constants: Vec<u8>,
+    /// pointer to a byte array with constant values
+    pub constants: *const u8,
+    //constatn array's length in byte
+    pub constants_size : isize,
     
 }
 
-pub fn buil_co(code:*const u8, op_count : isize) -> CodeObject {
-    CodeObject { 
-        instructions: code,
-        count: op_count,
-        //constants: constants,
-    }
-}

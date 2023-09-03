@@ -27,12 +27,12 @@ pub const OP_F64_STORE: u8 = 40;    //Store a f64 from value stack to memory.
 
 
 //Numeric Instructions
-pub const OP_U32_CONST: u8 = 40;    //Load u32 constant to value stack
-pub const OP_I32_CONST: u8 = 40;    //Load i32 constant to value stack
-pub const OP_U64_CONST: u8 = 40;    //Load u64 constant to value stack
-pub const OP_I64_CONST: u8 = 40;    //Load i64 constant to value stack
-pub const OP_F32_CONST: u8 = 40;    //Load f32 constant to value stack
-pub const OP_F64_CONST: u8 = 40;    //Load f64 constant to value stack
+pub const OP_U32_CONST: u8 = 0x40;  //Load u32 constant to value stack
+pub const OP_I32_CONST: u8 = 0x41;    //Load i32 constant to value stack
+pub const OP_U64_CONST: u8 = 0x42;    //Load u64 constant to value stack
+pub const OP_I64_CONST: u8 = 0x43;    //Load i64 constant to value stack
+pub const OP_F32_CONST: u8 = 0x44;    //Load f32 constant to value stack
+pub const OP_F64_CONST: u8 = 0x45;    //Load f64 constant to value stack
 
 pub const OP_U32_EQ: u8 = 45;       //Binary operation. compare two u32 and return true if equal
 pub const OP_U32_NE: u8 = 45;       //Binary operation. compare two u32 and return true if not equal
